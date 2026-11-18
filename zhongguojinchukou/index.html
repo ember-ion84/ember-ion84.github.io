@@ -1,0 +1,1523 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国进出口商品交易会展馆 - 官方影像门户 - 记录每一届商贸盛会</title>
+<meta name="description" content="中国进出口商品交易会展馆官方网站影像门户，以视频记录广交会展馆的展会现场、品牌故事与创作者社区，呈现专业高端的商贸内容生态。">
+<style>
+  :root{
+    --ink:#0d1b2a;
+    --ink-2:#20344a;
+    --paper:#ffffff;
+    --mist:#f3f6f9;
+    --line:#e2e8ef;
+    --brand:#0b5c8a;
+    --brand-2:#1a8fc1;
+    --accent:#e8a33d;
+    --accent-soft:#fdf3e3;
+    --muted:#5c6b7c;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(13,27,42,.08);
+    --shadow-lg:0 20px 50px rgba(13,27,42,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+  .skip-link{position:absolute;left:-9999px}
+  .skip-link:focus{left:12px;top:12px;background:var(--brand);color:#fff;padding:8px 16px;border-radius:8px;z-index:200}
+
+  /* ============ 吸顶公告条 + 页头 ============ */
+  .sticky-top{position:sticky;top:0;z-index:100;box-shadow:0 2px 14px rgba(13,27,42,.06)}
+  .notice{
+    background:linear-gradient(90deg,#0b5c8a,#137ba8 60%,#1a8fc1);
+    color:#eaf6fd;
+    font-size:13px;
+    letter-spacing:.2px;
+  }
+  .notice .wrap{
+    display:flex;align-items:center;gap:12px;
+    padding:7px 0;overflow:hidden;
+  }
+  .notice-badge{
+    flex:none;background:var(--accent);color:#231604;
+    font-weight:700;font-size:11px;padding:2px 8px;border-radius:20px;letter-spacing:1px;
+  }
+  .notice-track{display:flex;gap:28px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+  .notice-track::-webkit-scrollbar{display:none}
+  .notice-track span{opacity:.95}
+  .notice-track b{color:#ffd998;font-weight:600}
+
+  header.site-header{background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .header-inner{display:flex;align-items:center;gap:28px;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:10px;flex:none}
+  .logo-mark{
+    width:42px;height:42px;border-radius:12px;
+    background:linear-gradient(135deg,#0b5c8a,#1a8fc1);
+    display:grid;place-items:center;color:#fff;font-weight:800;font-size:17px;letter-spacing:.5px;
+    box-shadow:0 6px 16px rgba(11,92,138,.28);
+  }
+  .logo-text strong{display:block;font-size:16px;line-height:1.25;letter-spacing:.4px}
+  .logo-text small{display:block;font-size:11px;color:var(--muted);letter-spacing:2px}
+  nav.main-nav{display:flex;gap:4px;margin-left:auto}
+  nav.main-nav a{
+    padding:8px 13px;border-radius:9px;font-size:14.5px;color:var(--ink-2);
+    transition:.2s;white-space:nowrap;
+  }
+  nav.main-nav a:hover,nav.main-nav a.active{background:var(--mist);color:var(--brand);font-weight:600}
+  .header-tools{display:flex;align-items:center;gap:10px}
+  .search-box{position:relative;display:flex;align-items:center}
+  .search-box input{
+    width:190px;padding:9px 38px 9px 14px;border-radius:22px;border:1px solid var(--line);
+    background:var(--mist);font-size:13.5px;color:var(--ink);outline:none;transition:.25s;
+  }
+  .search-box input:focus{width:230px;background:#fff;border-color:var(--brand-2);box-shadow:0 0 0 4px rgba(26,143,193,.12)}
+  .search-box button{
+    position:absolute;right:4px;width:30px;height:30px;border-radius:50%;
+    display:grid;place-items:center;color:var(--brand);
+  }
+  .search-box button:hover{background:var(--accent-soft)}
+  .search-feedback{
+    position:absolute;top:46px;right:0;width:280px;background:#fff;border:1px solid var(--line);
+    border-radius:12px;box-shadow:var(--shadow-lg);padding:10px;font-size:13px;display:none;z-index:120;
+  }
+  .search-feedback.show{display:block}
+  .search-feedback p{color:var(--muted);font-size:12px;margin-bottom:6px}
+  .search-feedback a{display:block;padding:6px 8px;border-radius:8px;color:var(--ink-2)}
+  .search-feedback a:hover{background:var(--mist);color:var(--brand)}
+  .nav-toggle{display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);place-items:center}
+  .nav-toggle span{display:block;width:18px;height:2px;background:var(--ink);position:relative}
+  .nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .nav-toggle span::before{top:-6px}
+  .nav-toggle span::after{top:6px}
+
+  @media(max-width:980px){
+    .header-inner{flex-wrap:wrap;gap:12px}
+    nav.main-nav{
+      display:none;width:100%;flex-direction:column;padding:8px 0;border-top:1px solid var(--line);
+    }
+    nav.main-nav.open{display:flex}
+    .nav-toggle{display:grid;margin-left:auto}
+    .header-tools{margin-left:0;order:3}
+    .search-box input{width:150px}
+    .search-box input:focus{width:170px}
+  }
+
+  /* ============ 通用模块 ============ */
+  section{padding:76px 0;scroll-margin-top:120px}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;
+    color:var(--brand);font-weight:700;text-transform:uppercase;margin-bottom:8px;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--accent);border-radius:2px}
+  h2{font-size:clamp(24px,2.6vw,32px);letter-spacing:.3px;line-height:1.3}
+  .sec-head p.desc{color:var(--muted);font-size:14.5px;max-width:520px;margin-top:8px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:24px;
+    font-size:14px;font-weight:600;transition:.22s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--brand);color:#fff;box-shadow:0 8px 22px rgba(11,92,138,.28)}
+  .btn-primary:hover{background:#084a70;transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--line);color:var(--ink-2);background:#fff}
+  .btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+  .btn-accent{background:var(--accent);color:#231604}
+  .btn-accent:hover{background:#f0ae4c;transform:translateY(-2px)}
+
+  /* ============ 首屏 ============ */
+  .hero{
+    position:relative;background:
+      radial-gradient(1100px 460px at 82% -8%,rgba(26,143,193,.20),transparent 62%),
+      radial-gradient(900px 420px at 4% 104%,rgba(232,163,61,.16),transparent 60%),
+      var(--mist);
+    padding:70px 0 80px;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-90px;top:40px;width:340px;height:340px;border-radius:50%;
+    border:1px dashed rgba(11,92,138,.25);pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:1}
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    padding:6px 14px;border-radius:20px;font-size:12.5px;color:var(--brand);font-weight:600;
+    box-shadow:var(--shadow);margin-bottom:20px;
+  }
+  .hero-tag i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:block}
+  h1{font-size:clamp(30px,4vw,50px);line-height:1.18;letter-spacing:.2px;margin-bottom:18px}
+  h1 .hl{
+    background:linear-gradient(180deg,transparent 62%,rgba(232,163,61,.42) 62%);
+    padding:0 4px;
+  }
+  .hero-intro{font-size:15.5px;color:var(--ink-2);max-width:560px;margin-bottom:26px}
+  .hero-intro strong{color:var(--brand);font-weight:600}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:540px}
+  .stat{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+    box-shadow:var(--shadow);
+  }
+  .stat b{display:block;font-size:24px;color:var(--brand);letter-spacing:.5px;line-height:1.2}
+  .stat span{font-size:12.5px;color:var(--muted)}
+  .hero-visual{position:relative}
+  .hero-frame{
+    border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid #fff;
+    background:#fff;
+  }
+  .hero-frame .cover{position:relative;aspect-ratio:16/10;overflow:hidden}
+  .hero-frame .cover img{width:100%;height:100%;object-fit:cover}
+  .play-badge{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:66px;height:66px;border-radius:50%;background:rgba(255,255,255,.92);
+    display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transition:.25s;cursor:pointer;
+  }
+  .play-badge:hover{transform:translate(-50%,-50%) scale(1.08);background:#fff}
+  .play-badge::after{
+    content:"";border-left:17px solid var(--brand);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px;
+  }
+  .hero-frame .meta{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .hero-frame .meta strong{font-size:14.5px}
+  .hero-frame .meta span{font-size:12.5px;color:var(--muted)}
+  .float-card{
+    position:absolute;left:-26px;bottom:34px;background:#fff;border-radius:14px;
+    box-shadow:var(--shadow-lg);padding:12px 16px;border:1px solid var(--line);
+    display:flex;align-items:center;gap:10px;max-width:250px;
+  }
+  .float-card .dot{width:10px;height:10px;border-radius:50%;background:#2fae6b;box-shadow:0 0 0 4px rgba(47,174,107,.18)}
+  .float-card p{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+  .float-card p b{color:var(--ink)}
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .float-card{left:12px;bottom:14px}
+    .hero::after{display:none}
+  }
+
+  /* ============ 焦点内容 ============ */
+  .focus-band{background:#fff}
+  .focus-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:24px}
+  .focus-main{
+    position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);
+    min-height:400px;display:flex;align-items:flex-end;
+  }
+  .focus-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .focus-main .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,18,30,0) 30%,rgba(6,18,30,.86) 100%)}
+  .focus-main .inner{position:relative;padding:30px;color:#fff}
+  .chip{
+    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1px;
+    background:var(--accent);color:#231604;padding:3px 10px;border-radius:20px;margin-bottom:12px;
+  }
+  .focus-main h3{font-size:clamp(20px,2.2vw,26px);line-height:1.35;margin-bottom:8px}
+  .focus-main p{font-size:13.5px;color:#cfe0ec;max-width:540px}
+  .focus-main .foot{display:flex;align-items:center;gap:16px;margin-top:16px;font-size:12.5px;color:#b9ccdb;flex-wrap:wrap}
+  .focus-side{display:grid;grid-template-rows:1fr 1fr;gap:24px}
+  .side-card{
+    display:flex;gap:14px;background:var(--mist);border:1px solid var(--line);border-radius:16px;
+    padding:14px;transition:.25s;
+  }
+  .side-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfe0ec;background:#fff}
+  .side-card .thumb{flex:none;width:132px;aspect-ratio:16/10;border-radius:11px;overflow:hidden;position:relative}
+  .side-card .thumb img{width:100%;height:100%;object-fit:cover}
+  .side-card h4{font-size:14.5px;line-height:1.45;margin-bottom:6px}
+  .side-card p{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .side-card .tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+  .mini-tag{font-size:11px;background:#fff;border:1px solid var(--line);color:var(--brand);padding:1px 8px;border-radius:20px}
+  @media(max-width:900px){
+    .focus-grid{grid-template-columns:1fr}
+    .focus-side{grid-template-rows:none;grid-template-columns:1fr}
+  }
+
+  /* ============ 视频流 ============ */
+  .flow-band{background:var(--mist)}
+  .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+  .filter-btn{
+    padding:7px 16px;border-radius:20px;border:1px solid var(--line);background:#fff;
+    font-size:13px;color:var(--ink-2);transition:.2s;
+  }
+  .filter-btn:hover{border-color:var(--brand-2);color:var(--brand)}
+  .filter-btn.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .v-card{
+    background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    display:flex;flex-direction:column;transition:.28s;
+  }
+  .v-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:#d4e2ee}
+  .v-card .cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#dde6ee}
+  .v-card .cover img{width:100%;height:100%;object-fit:cover;transition:.4s}
+  .v-card:hover .cover img{transform:scale(1.05)}
+  .v-card .cover .vchip{
+    position:absolute;left:10px;top:10px;background:rgba(255,255,255,.94);color:var(--brand);
+    font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.5px;
+  }
+  .v-card .cover .vtime{
+    position:absolute;right:10px;bottom:10px;background:rgba(6,18,30,.72);color:#fff;
+    font-size:11px;padding:2px 7px;border-radius:6px;letter-spacing:.5px;
+  }
+  .v-card .body{padding:16px 16px 14px;display:flex;flex-direction:column;flex:1}
+  .v-card h3{font-size:15.5px;line-height:1.5;margin-bottom:7px}
+  .v-card .sum{font-size:13px;color:var(--muted);line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+  .v-card .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .v-card .chips span{font-size:11px;color:var(--brand);background:#eef6fb;padding:2px 8px;border-radius:20px}
+  .v-card .cardfoot{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);
+  }
+  .author-mini{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2)}
+  .avatar{
+    width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+    font-size:12px;font-weight:700;color:#fff;flex:none;letter-spacing:.5px;
+  }
+  .card-acts{display:flex;align-items:center;gap:4px}
+  .act{
+    display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);
+    padding:4px 8px;border-radius:16px;transition:.2s;
+  }
+  .act:hover{background:var(--mist);color:var(--brand)}
+  .act.on{color:#e2436b}
+  .act .heart{font-size:13px}
+  @media(max-width:900px){.video-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.video-grid{grid-template-columns:1fr}}
+
+  /* ============ 专题 ============ */
+  .topic-band{background:#fff}
+  .topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .topic-card{
+    position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4;
+    box-shadow:var(--shadow);transition:.3s;display:block;
+  }
+  .topic-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .topic-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .topic-card .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,18,30,.05) 30%,rgba(6,18,30,.88))}
+  .topic-card .txt{position:absolute;left:0;right:0;bottom:0;padding:20px;color:#fff}
+  .topic-card .state{
+    display:inline-block;font-size:11px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    backdrop-filter:blur(4px);padding:2px 9px;border-radius:20px;margin-bottom:10px;
+  }
+  .topic-card h3{font-size:17px;line-height:1.4;margin-bottom:6px}
+  .topic-card p{font-size:12.5px;color:#c3d5e2;line-height:1.6}
+  @media(max-width:900px){.topic-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* ============ 创作者 ============ */
+  .creator-band{background:linear-gradient(180deg,#f3f6f9,#eaf2f8)}
+  .creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .creator-card{
+    background:#fff;border-radius:18px;padding:22px 20px;border:1px solid var(--line);
+    text-align:center;transition:.28s;position:relative;
+  }
+  .creator-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+  .creator-card .big-avatar{
+    width:74px;height:74px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;
+    font-size:26px;font-weight:800;color:#fff;letter-spacing:1px;box-shadow:0 8px 22px rgba(11,92,138,.22);
+  }
+  .creator-card h3{font-size:16px;margin-bottom:4px}
+  .creator-card .field{font-size:12.5px;color:var(--brand);font-weight:600;margin-bottom:10px}
+  .creator-card p{font-size:12.5px;color:var(--muted);line-height:1.65;min-height:60px}
+  .creator-card .nums{display:flex;justify-content:center;gap:18px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+  .creator-card .nums div{font-size:11.5px;color:var(--muted)}
+  .creator-card .nums b{display:block;font-size:15px;color:var(--ink)}
+  .creator-card .more{
+    margin-top:14px;width:100%;padding:8px;border-radius:10px;background:var(--mist);
+    font-size:12.5px;color:var(--brand);font-weight:600;transition:.2s;
+  }
+  .creator-card .more:hover{background:var(--brand);color:#fff}
+  @media(max-width:900px){.creator-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.creator-grid{grid-template-columns:1fr}}
+
+  /* ============ 故事与随笔 ============ */
+  .story-band{background:#fff}
+  .story-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .story-main{
+    background:var(--mist);border-radius:20px;padding:30px;border:1px solid var(--line);
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .story-main .quote{font-size:20px;line-height:1.6;font-weight:600;color:var(--ink);position:relative;padding-left:26px}
+  .story-main .quote::before{content:"“";position:absolute;left:0;top:-6px;font-size:42px;color:var(--accent);line-height:1}
+  .story-main .body{font-size:14px;color:var(--ink-2);margin:18px 0}
+  .story-main .who{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+  .story-list{display:grid;gap:14px}
+  .story-item{
+    display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;
+    transition:.25s;align-items:center;
+  }
+  .story-item:hover{box-shadow:var(--shadow);transform:translateX(4px);border-color:#cfe0ec}
+  .story-item .no{
+    flex:none;width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:#8a5a10;
+    display:grid;place-items:center;font-weight:800;font-size:15px;
+  }
+  .story-item h3{font-size:15px;margin-bottom:4px}
+  .story-item p{font-size:12.5px;color:var(--muted);line-height:1.6}
+  @media(max-width:900px){.story-layout{grid-template-columns:1fr}}
+
+  /* ============ 影像墙 ============ */
+  .wall-band{background:var(--ink);color:#e9f1f7}
+  .wall-band .eyebrow{color:var(--brand-2)}
+  .wall-band .eyebrow::before{background:var(--accent)}
+  .wall-band h2{color:#fff}
+  .wall-band .sec-head p.desc{color:#8fa6b8}
+  .wall{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:14px;
+  }
+  .wall-item{position:relative;border-radius:14px;overflow:hidden;background:#16283a;cursor:pointer;transition:.3s}
+  .wall-item img{width:100%;height:100%;object-fit:cover;transition:.45s}
+  .wall-item:hover img{transform:scale(1.07)}
+  .wall-item .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;
+    background:linear-gradient(180deg,transparent,rgba(6,18,30,.9));
+    font-size:12px;color:#fff;opacity:0;transform:translateY(6px);transition:.3s;
+  }
+  .wall-item:hover .cap{opacity:1;transform:translateY(0)}
+  .wall-item.big{grid-column:span 2;grid-row:span 2}
+  .wall-item.tall{grid-row:span 2}
+  @media(max-width:900px){
+    .wall{grid-template-columns:repeat(3,1fr);grid-auto-rows:130px}
+  }
+  @media(max-width:600px){
+    .wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
+    .wall-item.big{grid-column:span 2;grid-row:span 2}
+  }
+
+  /* ============ 评价 ============ */
+  .review-band{background:var(--mist)}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .review-card{
+    background:#fff;border-radius:16px;padding:22px;border:1px solid var(--line);
+    display:flex;flex-direction:column;gap:12px;position:relative;
+  }
+  .review-card::before{
+    content:"";position:absolute;right:18px;top:14px;font-size:36px;color:var(--accent);opacity:.25;font-family:Georgia,serif;
+  }
+  .review-card .stars{color:var(--accent);font-size:13px;letter-spacing:2px}
+  .review-card p{font-size:13.5px;color:var(--ink-2);line-height:1.75;flex:1}
+  .review-card .rv-foot{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted)}
+  @media(max-width:900px){.review-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.review-grid{grid-template-columns:1fr}}
+
+  /* ============ FAQ + 联系 ============ */
+  .faq-band{background:#fff}
+  .faq-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-item summary{
+    list-style:none;padding:18px 34px 18px 0;font-size:15px;font-weight:600;cursor:pointer;position:relative;
+    transition:.2s;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{
+    content:"+";position:absolute;right:4px;top:16px;font-size:20px;color:var(--brand);font-weight:400;transition:.25s;
+  }
+  .faq-item[open] summary{color:var(--brand)}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item .ans{font-size:13.5px;color:var(--muted);line-height:1.8;padding:0 34px 18px 0}
+  .contact-card{
+    background:linear-gradient(160deg,#0b5c8a,#137ea9);color:#eaf6fd;border-radius:20px;padding:30px;
+    box-shadow:var(--shadow-lg);
+  }
+  .contact-card h3{font-size:20px;color:#fff;margin-bottom:8px}
+  .contact-card p{font-size:13.5px;color:#bcd9e8;line-height:1.8;margin-bottom:18px}
+  .contact-card ul{list-style:none;display:grid;gap:12px;font-size:13.5px;margin-bottom:22px}
+  .contact-card li{display:flex;gap:10px;align-items:flex-start;color:#dcecf5}
+  .contact-card li b{color:#fff;flex:none}
+  .contact-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .contact-actions .btn-ghost{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:#fff}
+  .contact-actions .btn-ghost:hover{background:rgba(255,255,255,.2);color:#fff}
+  @media(max-width:900px){.faq-layout{grid-template-columns:1fr;gap:30px}}
+
+  /* ============ 页脚 ============ */
+  footer.site-footer{background:#0a1622;color:#93a9bb;padding:56px 0 26px;font-size:13.5px}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:34px;padding-bottom:34px;border-bottom:1px solid #1b2c3d}
+  footer h4{color:#fff;font-size:14px;margin-bottom:14px;letter-spacing:.5px}
+  footer .flogo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  footer .flogo .logo-mark{width:38px;height:38px;font-size:15px}
+  footer .flogo strong{color:#fff;font-size:15px}
+  footer p{line-height:1.8;font-size:13px}
+  footer ul{list-style:none;display:grid;gap:9px}
+  footer ul a{color:#93a9bb;transition:.2s}
+  footer ul a:hover{color:var(--accent)}
+  .footer-bottom{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding-top:22px;font-size:12.5px;color:#6c8296;
+  }
+  .footer-bottom a{color:#93a9bb}
+  .footer-bottom a:hover{color:var(--brand-2)}
+
+  /* ============ 弹窗 / Toast / 回顶 ============ */
+  .modal-mask{
+    position:fixed;inset:0;background:rgba(6,18,30,.55);backdrop-filter:blur(3px);
+    display:none;place-items:center;z-index:300;padding:20px;
+  }
+  .modal-mask.show{display:grid}
+  .modal{
+    background:#fff;border-radius:18px;max-width:440px;width:100%;padding:28px;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);animation:pop .25s ease;
+  }
+  @keyframes pop{from{transform:translateY(14px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  .modal h3{font-size:18px;margin-bottom:8px}
+  .modal p{font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:18px}
+  .modal input,.modal textarea{
+    width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--line);
+    font-family:inherit;font-size:13.5px;margin-bottom:12px;outline:none;color:var(--ink);
+  }
+  .modal input:focus,.modal textarea:focus{border-color:var(--brand-2);box-shadow:0 0 0 4px rgba(26,143,193,.1)}
+  .modal .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:6px}
+  .toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);opacity:0;pointer-events:none;
+    background:#0d1b2a;color:#fff;padding:11px 22px;border-radius:30px;font-size:13.5px;
+    box-shadow:0 14px 34px rgba(0,0,0,.3);z-index:400;transition:.3s;white-space:nowrap;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  .to-top{
+    position:fixed;right:22px;bottom:24px;width:46px;height:46px;border-radius:50%;
+    background:var(--brand);color:#fff;display:grid;place-items:center;font-size:18px;
+    box-shadow:0 10px 26px rgba(11,92,138,.35);opacity:0;pointer-events:none;transition:.3s;z-index:250;
+  }
+  .to-top.show{opacity:1;pointer-events:auto}
+  .to-top:hover{background:#084a70;transform:translateY(-3px)}
+  @media(max-width:900px){
+    .footer-grid{grid-template-columns:1fr 1fr;gap:26px}
+    section{padding:58px 0}
+  }
+  @media(max-width:520px){
+    .footer-grid{grid-template-columns:1fr}
+    .hero-stats{grid-template-columns:1fr}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="sticky-top">
+  <!-- 公告条 -->
+  <div class="notice" role="region" aria-label="最新公告">
+    <div class="wrap">
+      <span class="notice-badge">最新</span>
+      <div class="notice-track">
+        <span><b>第139届广交会展馆影像档案</b>已上线 218 条现场纪实</span>
+        <span><b>「展馆二十四小时」</b>系列第 6 集发布，记录布展夜的最后一次巡检</span>
+        <span><b>创作者招募</b>报名通道开放至 10 月 30 日，面向会展与城市记录方向</span>
+        <span><b>企业动态</b>展馆智慧导览系统完成升级，新增多语种图层</span>
+      </div>
+    </div>
+  </div>
+  <!-- 页头 -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="中国进出口商品交易会展馆官网首页">
+        <span class="logo-mark" aria-hidden="true">广交</span>
+        <span class="logo-text">
+          <strong>中国进出口商品交易会展馆</strong>
+          <small>官方影像门户</small>
+        </span>
+      </a>
+      <nav class="main-nav" id="nav" aria-label="主导航">
+        <a href="#focus" class="active">视频焦点</a>
+        <a href="#flow">内容精选</a>
+        <a href="#topics">专题企划</a>
+        <a href="#creators">创作者</a>
+        <a href="#stories">故事随笔</a>
+        <a href="#wall">影像墙</a>
+        <a href="#faq">帮助</a>
+        <a href="#contact">联系</a>
+      </nav>
+      <div class="header-tools">
+        <div class="search-box">
+          <input id="searchInput" type="search" placeholder="搜索展馆影像、品牌、创作者" aria-label="站内搜索">
+          <button id="searchBtn" aria-label="搜索">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          </button>
+          <div class="search-feedback" id="searchFeedback" aria-live="polite"></div>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="展开导航" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="main">
+  <!-- 首屏 -->
+  <section class="hero" id="top" style="scroll-margin-top:120px">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag"><i aria-hidden="true"></i>官方网站 · 品牌影像档案 · 持续运营</span>
+        <h1>中国进出口商品交易会展馆<span class="hl">影像门户</span></h1>
+        <p class="hero-intro">
+          作为广交会的重要承载空间与<strong>企业级商贸内容平台</strong>，中国进出口商品交易会展馆官方网站以影像为线索，记录每一届展会的现场秩序、品牌故事与城市气息。
+          我们深耕会展垂直领域，以<strong>专业、正版、高清</strong>为标准，为参展企业、采购商与内容创作者搭建高品质内容生态：从布展通宵到开幕首日，从展台搭建工艺到洽谈桌前的真实对话，
+          用持续运营的档案库，让每一次相遇都有迹可循。这里不只是场馆，更是一座城市与世界握手的现场。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#focus">进入视频焦点</a>
+          <a class="btn btn-accent" href="#flow">浏览内容精选</a>
+          <a class="btn btn-ghost" href="#contact">投稿与报名</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b data-count="218">218</b><span>现场纪实影像</span></div>
+          <div class="stat"><b data-count="46">46</b><span>合作品牌与企业</span></div>
+          <div class="stat"><b data-count="12">12</b><span>年度专题企划</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-frame">
+          <div class="cover">
+            <img alt="广交会展馆主入口广场清晨人流与旗帜影像封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><defs><linearGradient id='g1' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230b3f63'/><stop offset='.55' stop-color='%23137ba8'/><stop offset='1' stop-color='%2359b8cf'/></linearGradient><linearGradient id='g2' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='%23f2c27a'/><stop offset='1' stop-color='%23e8a33d'/></linearGradient></defs><rect width='800' height='500' fill='url(%23g1)'/><circle cx='640' cy='110' r='68' fill='url(%23g2)' opacity='.85'/><path d='M0 340 L120 250 L210 300 L320 210 L430 290 L540 230 L660 305 L800 250 L800 500 L0 500 Z' fill='%23092e49' opacity='.85'/><path d='M0 392 L140 330 L260 372 L390 318 L520 366 L660 320 L800 368 L800 500 L0 500 Z' fill='%23062034'/><g stroke='%23ffffff' stroke-width='2' opacity='.55'><path d='M96 372 v-58 M112 372 v-72 M128 372 v-50'/></g><g fill='%23ffffff' opacity='.2'><rect x='470' y='300' width='8' height='70'/><rect x='495' y='282' width='8' height='88'/><rect x='520' y='310' width='8' height='60'/></g><rect x='40' y='40' width='210' height='30' rx='15' fill='%23ffffff' opacity='.18'/></svg>">
+            <div class="play-badge" role="button" tabindex="0" aria-label="播放展馆开场影像"></div>
+          </div>
+          <div class="meta">
+            <div>
+              <strong>开场：展馆的一天从这里开始</strong>
+              <span>纪实 · 08:24</span>
+            </div>
+            <span>官方发布</span>
+          </div>
+        </div>
+        <div class="float-card">
+          <i class="dot" aria-hidden="true"></i>
+          <p><b>今日更新 9 条</b><br>展馆档案库同步上新</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点内容 -->
+  <section class="focus-band" id="focus">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Focus</span>
+          <h2>视频焦点：这一届，值得被反复回看</h2>
+          <p class="desc">由展馆内容团队与驻场创作者共同完成的重点纪实，聚焦现场秩序、品牌表达与人的故事。</p>
+        </div>
+        <a class="btn btn-ghost" href="#flow">查看全部视频</a>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-main">
+          <img alt="广交会展馆开幕首日人流穿过中央通道的纪实画面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 620'><defs><linearGradient id='fm' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23091f33'/><stop offset='.5' stop-color='%23184e75'/><stop offset='1' stop-color='%232f9dbd'/></linearGradient></defs><rect width='900' height='620' fill='url(%23fm)'/><g opacity='.5' stroke='%23bfe2f2' stroke-width='2'><path d='M60 470 L300 250 L540 470 M300 250 L300 470' fill='none'/><path d='M560 470 L720 330 L880 470 M720 330 L720 470' fill='none'/></g><g fill='%23e9f6fc' opacity='.75'><circle cx='180' cy='400' r='10'/><circle cx='225' cy='415' r='9'/><circle cx='330' cy='408' r='11'/><circle cx='392' cy='424' r='9'/><circle cx='470' cy='400' r='10'/><circle cx='600' cy='415' r='9'/><circle cx='700' cy='404' r='10'/><circle cx='790' cy='424' r='9'/></g><g fill='%23f3c783' opacity='.85'><rect x='110' y='120' width='120' height='10' rx='5'/><rect x='110' y='146' width='80' height='10' rx='5'/></g><circle cx='720' cy='120' r='52' fill='%23f3c783' opacity='.85'/><path d='M0 560 Q225 500 450 548 T900 520 L900 620 L0 620 Z' fill='%23071a2a' opacity='.9'/></svg>">
+          <div class="shade"></div>
+          <div class="inner">
+            <span class="chip">重点推荐</span>
+            <h3>开幕首日：四条通道里同时发生的九千次握手</h3>
+            <p>我们用 12 台机位记录开幕日动线，从安检口到洽谈区，还原一场大型展会的秩序如何被无数细节托住。</p>
+            <div class="foot">
+              <span>展馆内容中心</span>
+              <span>·</span>
+              <span>18:36</span>
+              <span>·</span>
+              <span>4.6 万次播放</span>
+            </div>
+          </div>
+        </article>
+        <div class="focus-side">
+          <article class="side-card">
+            <div class="thumb">
+              <img alt="展台搭建工人夜间作业的纪实封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'><rect width='320' height='200' fill='%230b2a42'/><g stroke='%23f0b45e' stroke-width='3' opacity='.8'><path d='M30 160 L120 60 L210 160' fill='none'/><path d='M120 60 L120 160' fill='none'/></g><circle cx='250' cy='60' r='26' fill='%23f0b45e' opacity='.8'/><g fill='%23cfe2ee' opacity='.5'><rect x='150' y='120' width='40' height='40'/><rect x='210' y='130' width='30' height='30'/></g></svg>">
+            </div>
+            <div>
+              <h4>布展夜：凌晨三点还亮着的最后一盏灯</h4>
+              <p>记录搭建团队在 48 小时内的协作节奏与工艺细节。</p>
+              <div class="tags"><span class="mini-tag">创作幕后</span><span class="mini-tag">行业观察</span></div>
+            </div>
+          </article>
+          <article class="side-card">
+            <div class="thumb">
+              <img alt="多语种采购商在洽谈区交流的影像封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'><rect width='320' height='200' fill='%23e8f2f7'/><g fill='%23137ba8'><circle cx='90' cy='86' r='22'/><circle cx='215' cy='86' r='22'/></g><g fill='%23c98f34'><rect x='62' y='118' width='56' height='46' rx='10'/><rect x='187' y='118' width='56' height='46' rx='10'/></g><g stroke='%239fb9c9' stroke-width='3'><path d='M126 118 H186'/></g></svg>">
+            </div>
+            <div>
+              <h4>洽谈桌前：三种语言谈成的一笔订单</h4>
+              <p>来自采购商与参展企业的双视角对谈，真实还原沟通现场。</p>
+              <div class="tags"><span class="mini-tag">人物访谈</span><span class="mini-tag">商业观察</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 内容精选 / 视频流 -->
+  <section class="flow-band" id="flow">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Selected</span>
+          <h2>内容精选：从场馆出发的九个切面</h2>
+          <p class="desc">按主题筛选，快速找到你关心的现场记录、经验分享与深度测评。</p>
+        </div>
+      </div>
+      <div class="filter-row" id="filterRow" role="tablist" aria-label="内容筛选">
+        <button class="filter-btn on" data-filter="all" role="tab" aria-selected="true">全部</button>
+        <button class="filter-btn" data-filter="现场" role="tab" aria-selected="false">现场纪实</button>
+        <button class="filter-btn" data-filter="测评" role="tab" aria-selected="false">深度测评</button>
+        <button class="filter-btn" data-filter="访谈" role="tab" aria-selected="false">人物访谈</button>
+        <button class="filter-btn" data-filter="技巧" role="tab" aria-selected="false">实用技巧</button>
+        <button class="filter-btn" data-filter="城市" role="tab" aria-selected="false">城市探索</button>
+      </div>
+      <div class="video-grid" id="videoGrid">
+        <article class="v-card" data-cat="现场">
+          <div class="cover">
+            <img alt="展馆中央通道全景与来往人流的视频封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%23124a6e'/><path d='M0 220 L120 120 L240 220 Z' fill='%230b3350'/><path d='M240 220 L360 120 L480 220 Z' fill='%230b3350'/><rect x='40' y='40' width='120' height='14' rx='7' fill='%23e8a33d' opacity='.8'/><g fill='%23dcecf5' opacity='.8'><circle cx='120' cy='196' r='7'/><circle cx='160' cy='204' r='6'/><circle cx='300' cy='200' r='7'/><circle cx='350' cy='206' r='6'/></g></svg>">
+            <span class="vchip">现场纪实</span><span class="vtime">12:08</span>
+          </div>
+          <div class="body">
+            <h3>一条通道的十二小时：从开门到闭馆</h3>
+            <p class="sum">固定机位延时记录中央通道的人流潮汐，观察一场大型展会的呼吸节奏。</p>
+            <div class="chips"><span>日常记录</span><span>展馆秩序</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#0b5c8a">林</span>林致远</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">1286</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="测评">
+          <div class="cover">
+            <img alt="新型展台模块化结构与材质测试的实测封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%23f0f5f9'/><g stroke='%23137ba8' stroke-width='4' fill='none'><rect x='90' y='70' width='130' height='140'/><rect x='260' y='100' width='120' height='110'/></g><g fill='%23e8a33d'><rect x='120' y='100' width='40' height='40'/><rect x='290' y='130' width='30' height='30'/></g><g fill='%23a7c3d6'><rect x='90' y='225' width='300' height='8' rx='4'/></g></svg>">
+            <span class="vchip">深度测评</span><span class="vtime">09:41</span>
+          </div>
+          <div class="body">
+            <h3>模块化展台实测：48 小时搭建到底能多快</h3>
+            <p class="sum">我们对三套主流模块系统做了同条件对比，记录安装耗时、承重表现与拆装损耗。</p>
+            <div class="chips"><span>深度测评</span><span>实用技巧</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#1a8fc1">陈</span>陈一禾</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">967</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="访谈">
+          <div class="cover">
+            <img alt="连续参展十二年的企业负责人访谈视频封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%232a3f52'/><circle cx='150' cy='120' r='48' fill='%23e8a33d'/><path d='M96 230 q54 -78 108 0 Z' fill='%23e8a33d'/><g stroke='%23e9f1f7' stroke-width='4' opacity='.6'><path d='M300 90 H420 M300 130 H400 M300 170 H430'/></g></svg>">
+            <span class="vchip">人物访谈</span><span class="vtime">15:22</span>
+          </div>
+          <div class="body">
+            <h3>十二年，他把展位号做成了客户认得的名片</h3>
+            <p class="sum">与一位外贸企业负责人聊长期主义：为什么固定展位也是一种品牌资产。</p>
+            <div class="chips"><span>人物访谈</span><span>品牌故事</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#8a5a10">周</span>周叙白</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">743</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="技巧">
+          <div class="cover">
+            <img alt="采购商动线与展位选择技巧讲解视频封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%23eaf4f9'/><g stroke='%230b5c8a' stroke-width='4' fill='none' stroke-dasharray='10 8'><path d='M50 210 C150 210 150 90 250 90 S350 210 430 160'/></g><g fill='%230b5c8a'><circle cx='50' cy='210' r='10'/><circle cx='430' cy='160' r='10'/></g><g fill='%23e8a33d'><circle cx='250' cy='90' r='12'/></g><g fill='%23b9d3e2'><rect x='60' y='50' width='60' height='40' rx='6'/><rect x='360' y='200' width='70' height='40' rx='6'/></g></svg>">
+            <span class="vchip">实用技巧</span><span class="vtime">07:16</span>
+          </div>
+          <div class="body">
+            <h3>第一次来展馆？这份四小时动线攻略请收好</h3>
+            <p class="sum">从地铁出口到重点展区，我们按优先级排了一条省力又高效的通关路线。</p>
+            <div class="chips"><span>实用技巧</span><span>攻略</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#2f7a5c">苏</span>苏南星</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">2034</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="城市">
+          <div class="cover">
+            <img alt="展馆周边城市街景与老茶楼清晨影像封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%23f6ede0'/><g fill='%23c98f34' opacity='.85'><rect x='40' y='120' width='90' height='110'/><rect x='150' y='80' width='70' height='150'/><rect x='250' y='140' width='60' height='90'/><rect x='330' y='100' width='100' height='130'/></g><g fill='%23fff' opacity='.8'><rect x='56' y='140' width='18' height='22'/><rect x='88' y='140' width='18' height='22'/><rect x='166' y='104' width='16' height='20'/><rect x='346' y='124' width='22' height='24'/><rect x='386' y='124' width='22' height='24'/></g><circle cx='410' cy='50' r='26' fill='%23e07b39' opacity='.8'/></svg>">
+            <span class="vchip">城市探索</span><span class="vtime">11:03</span>
+          </div>
+          <div class="body">
+            <h3>从展馆走出的三条街：早茶、骑楼与老码头</h3>
+            <p class="sum">闭馆之后去哪儿？创作者用一条步行路线串起场馆周边的老城生活。</p>
+            <div class="chips"><span>城市探索</span><span>在地文化</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#b4622a">何</span>何小满</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">1568</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="现场">
+          <div class="cover">
+            <img alt="展馆夜间灯光与外围广场的航拍影像封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%23091a2b'/><g fill='%23f0b45e'><rect x='120' y='110' width='240' height='80' rx='6' opacity='.9'/><circle cx='240' cy='80' r='40' opacity='.25'/></g><g fill='%23bfe2f2' opacity='.6'><rect x='140' y='130' width='20' height='40'/><rect x='176' y='130' width='20' height='40'/><rect x='212' y='130' width='20' height='40'/><rect x='248' y='130' width='20' height='40'/><rect x='284' y='130' width='20' height='40'/><rect x='320' y='130' width='20' height='40'/></g><g fill='%23e8a33d' opacity='.7'><circle cx='70' cy='220' r='4'/><circle cx='110' cy='230' r='3'/><circle cx='380' cy='224' r='4'/><circle cx='420' cy='234' r='3'/></g></svg>">
+            <span class="vchip">现场纪实</span><span class="vtime">06:48</span>
+          </div>
+          <div class="body">
+            <h3>闭馆后的一小时：灯光熄灭之前</h3>
+            <p class="sum">保洁、安保、设备巡检同时启动，一座展馆在深夜里重新归位。</p>
+            <div class="chips"><span>日常记录</span><span>创作幕后</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#14486b">吴</span>吴声</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">889</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="测评">
+          <div class="cover">
+            <img alt="展馆智慧导览设备与多语种界面测评封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%23e6f0f6'/><rect x='170' y='40' width='140' height='190' rx='16' fill='%23fff' stroke='%239fb9c9' stroke-width='4'/><g fill='%23137ba8'><rect x='195' y='80' width='90' height='12' rx='6'/><rect x='195' y='110' width='70' height='10' rx='5'/><rect x='195' y='134' width='90' height='10' rx='5'/><rect x='195' y='158' width='55' height='10' rx='5'/></g><circle cx='240' cy='200' r='14' fill='%23e8a33d'/></svg>">
+            <span class="vchip">深度测评</span><span class="vtime">08:55</span>
+          </div>
+          <div class="body">
+            <h3>智慧导览实测：多语种图层到底好不好用</h3>
+            <p class="sum">我们找了三位不同语种的志愿者，实测路径规划与展位定位的准确度。</p>
+            <div class="chips"><span>科技前沿</span><span>实用技巧</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#3b5f8a">郑</span>郑柏舟</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">654</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="访谈">
+          <div class="cover">
+            <img alt="展馆志愿者团队合影访谈视频封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%23f2f7fa'/><g fill='%230b5c8a'><circle cx='130' cy='110' r='26'/><circle cx='210' cy='100' r='26'/><circle cx='290' cy='110' r='26'/><circle cx='370' cy='100' r='26'/></g><g fill='%23a7c3d6'><rect x='100' y='146' width='60' height='80' rx='10'/><rect x='180' y='146' width='60' height='80' rx='10'/><rect x='260' y='146' width='60' height='80' rx='10'/><rect x='340' y='146' width='60' height='80' rx='10'/></g><g fill='%23e8a33d'><rect x='100' y='146' width='60' height='12' rx='6'/><rect x='260' y='146' width='60' height='12' rx='6'/></g></svg>">
+            <span class="vchip">人物访谈</span><span class="vtime">13:07</span>
+          </div>
+          <div class="body">
+            <h3>志愿者的一天：把第一次来的人送到对的地方</h3>
+            <p class="sum">六位驻场志愿者讲述他们的高频问题清单，以及那些被记住的小瞬间。</p>
+            <div class="chips"><span>人物访谈</span><span>情感故事</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#2f7a5c">叶</span>叶知秋</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">1120</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="现场">
+          <div class="cover">
+            <img alt="展馆外立面结构与建筑细节延时影像封面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'><rect width='480' height='270' fill='%23174968'/><g fill='%23cfe2ee' opacity='.85'><path d='M60 220 L160 70 L340 70 L440 220 Z'/><rect x='160' y='70' width='180' height='150' fill='%23123f5c'/></g><g stroke='%23e8a33d' stroke-width='3' opacity='.9'><path d='M160 70 L340 70 M60 220 L440 220 M110 145 H370'/></g><g fill='%2360b6d6' opacity='.7'><rect x='185' y='100' width='24' height='40'/><rect x='225' y='100' width='24' height='40'/><rect x='265' y='100' width='24' height='40'/><rect x='305' y='100' width='24' height='40'/></g></svg>">
+            <span class="vchip">现场纪实</span><span class="vtime">05:32</span>
+          </div>
+          <div class="body">
+            <h3>建筑会说话：展馆外立面的三段结构拆解</h3>
+            <p class="sum">从钢结构到幕墙节点，用镜头解释一座大型展馆如何承受人流与时间。</p>
+            <div class="chips"><span>知识科普</span><span>艺术美学</span></div>
+            <div class="cardfoot">
+              <div class="author-mini"><span class="avatar" style="background:#6a4a86">范</span>范止水</div>
+              <div class="card-acts">
+                <button class="act likeBtn" aria-label="点赞"><span class="heart">♥</span><span class="cnt">532</span></button>
+                <button class="act favBtn" aria-label="收藏">☆</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="topic-band" id="topics">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Projects</span>
+          <h2>专题企划：把现场做成可以检索的档案</h2>
+          <p class="desc">四个正在更新的长线企划，由馆方内容团队策划，联合驻场创作者共同完成。</p>
+        </div>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="#flow">
+          <img alt="展馆二十四小时专题企划封面，夜色中的展馆轮廓" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 430'><rect width='320' height='430' fill='%230b2a42'/><g fill='%23f0b45e'><circle cx='240' cy='70' r='36' opacity='.8'/><rect x='60' y='200' width='200' height='120' rx='8' opacity='.9'/></g><g fill='%23bfe2f2' opacity='.55'><rect x='80' y='230' width='24' height='60'/><rect x='120' y='230' width='24' height='60'/><rect x='160' y='230' width='24' height='60'/><rect x='200' y='230' width='24' height='60'/></g><path d='M0 360 Q160 320 320 360 L320 430 L0 430 Z' fill='%23071a2a'/></svg>">
+          <div class="veil"></div>
+          <div class="txt">
+            <span class="state">更新至第 6 集</span>
+            <h3>展馆二十四小时</h3>
+            <p>从凌晨到午夜，用一个完整昼夜解释场馆的运转逻辑。</p>
+          </div>
+        </a>
+        <a class="topic-card" href="#flow">
+          <img alt="展台诞生记专题企划封面，脚手架与设计图纸" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 430'><rect width='320' height='430' fill='%23f2e7d6'/><g stroke='%23174968' stroke-width='4' fill='none'><rect x='60' y='150' width='200' height='150'/><path d='M60 150 L160 80 L260 150'/></g><g fill='%23c98f34'><rect x='90' y='190' width='50' height='50'/><rect x='180' y='190' width='50' height='50'/></g><g fill='%23a7c3d6'><rect x='60' y='320' width='200' height='10' rx='5'/></g></svg>">
+          <div class="veil"></div>
+          <div class="txt">
+            <span class="state">持续更新中</span>
+            <h3>展台诞生记</h3>
+            <p>从设计图纸到落地验收，完整追踪一个展位的诞生过程。</p>
+          </div>
+        </a>
+        <a class="topic-card" href="#flow">
+          <img alt="三种语言一笔订单专题企划封面，对话气泡图形" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 430'><rect width='320' height='430' fill='%23137ba8'/><g fill='%23ffffff' opacity='.9'><rect x='40' y='90' width='150' height='70' rx='16'/><rect x='130' y='200' width='150' height='70' rx='16'/><rect x='60' y='310' width='150' height='70' rx='16'/></g><g fill='%23e8a33d'><circle cx='70' cy='125' r='8'/><circle cx='95' cy='125' r='8'/><circle cx='120' cy='125' r='8'/></g></svg>">
+          <div class="veil"></div>
+          <div class="txt">
+            <span class="state">本季 4 集</span>
+            <h3>三种语言一笔订单</h3>
+            <p>跟随采购商与参展企业，进入真实的跨境沟通现场。</p>
+          </div>
+        </a>
+        <a class="topic-card" href="#flow">
+          <img alt="场馆之外的城市散步专题企划封面，骑楼街景" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 430'><rect width='320' height='430' fill='%23f6ede0'/><g fill='%23c98f34'><rect x='30' y='180' width='90' height='180'/><rect x='140' y='130' width='80' height='230'/><rect x='240' y='200' width='60' height='160'/></g><g fill='%23fff' opacity='.85'><rect x='45' y='210' width='18' height='24'/><rect x='75' y='210' width='18' height='24'/><rect x='156' y='160' width='16' height='22'/><rect x='186' y='160' width='16' height='22'/></g><circle cx='260' cy='80' r='30' fill='%23e07b39' opacity='.75'/></svg>">
+          <div class="veil"></div>
+          <div class="txt">
+            <span class="state">每月双更</span>
+            <h3>场馆之外的城市散步</h3>
+            <p>顺着展馆延伸出去，走进城市日常与在地文化。</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="creator-band" id="creators">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Creators</span>
+          <h2>创作者矩阵：记录现场的人</h2>
+          <p class="desc">他们长期驻守或频繁往返于展馆与城市之间，是内容生态里最可靠的一环。</p>
+        </div>
+        <a class="btn btn-primary" href="#contact">申请成为创作者</a>
+      </div>
+      <div class="creator-grid">
+        <article class="creator-card">
+          <div class="big-avatar" style="background:linear-gradient(135deg,#0b5c8a,#1a8fc1)" aria-hidden="true">林</div>
+          <h3>林致远</h3>
+          <div class="field">现场纪实 · 延时摄影</div>
+          <p>专注大型场馆的秩序影像，擅长用固定机位讲清复杂现场。</p>
+          <div class="nums">
+            <div><b>86</b>作品</div>
+            <div><b>4.7万</b>关注</div>
+          </div>
+          <button class="more" data-author="林致远">查看主页</button>
+        </article>
+        <article class="creator-card">
+          <div class="big-avatar" style="background:linear-gradient(135deg,#b4622a,#e8a33d)" aria-hidden="true">陈</div>
+          <h3>陈一禾</h3>
+          <div class="field">深度测评 · 展会工艺</div>
+          <p>前结构工程师，习惯用参数和数据说话，测评风格冷静克制。</p>
+          <div class="nums">
+            <div><b>54</b>作品</div>
+            <div><b>3.2万</b>关注</div>
+          </div>
+          <button class="more" data-author="陈一禾">查看主页</button>
+        </article>
+        <article class="creator-card">
+          <div class="big-avatar" style="background:linear-gradient(135deg,#2f7a5c,#5bbd93)" aria-hidden="true">苏</div>
+          <h3>苏南星</h3>
+          <div class="field">实用技巧 · 参观攻略</div>
+          <p>连续五年做展馆动线笔记，攻略被多家参展企业印成小册子。</p>
+          <div class="nums">
+            <div><b>112</b>作品</div>
+            <div><b>6.1万</b>关注</div>
+          </div>
+          <button class="more" data-author="苏南星">查看主页</button>
+        </article>
+        <article class="creator-card">
+          <div class="big-avatar" style="background:linear-gradient(135deg,#6a4a86,#a67fce)" aria-hidden="true">何</div>
+          <h3>何小满</h3>
+          <div class="field">城市探索 · 在地文化</div>
+          <p>拍展馆，也拍展馆之外的街巷；相信城市记忆藏在早餐摊里。</p>
+          <div class="nums">
+            <div><b>73</b>作品</div>
+            <div><b>5.4万</b>关注</div>
+          </div>
+          <button class="more" data-author="何小满">查看主页</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 故事与随笔 -->
+  <section class="story-band" id="stories">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Stories</span>
+          <h2>故事与随笔：影像之外留下的文字</h2>
+          <p class="desc">有些现场无法只用镜头转述，于是我们把它写下来。</p>
+        </div>
+      </div>
+      <div class="story-layout">
+        <div class="story-main">
+          <p class="quote">我拍了七届开幕日，最打动我的从来不是最热闹的那一段。</p>
+          <div class="body">
+            是开场前二十分钟，通道两侧的展商会互相帮忙整理样册，有人借用胶带，有人递来一杯水。灯光还没完全亮起，那种默契已经先把场馆填满了。
+            我们总说要记录重大场面，但在展馆里，真正的重量往往落在这类细小动作上：一张被反复抚平的桌布，一块写了两遍的价签，一位翻译在两种语言之间来回确认的手势。
+            影像能做的，是把这些容易被忽略的瞬间固定下来，让它们在下一届到来之前，仍然有位置。
+          </div>
+          <div class="who">
+            <span class="avatar" style="background:#0b5c8a">林</span>
+            <span>林致远 · 驻场摄影师 · 记录于第 133 至 139 届</span>
+          </div>
+        </div>
+        <div class="story-list">
+          <article class="story-item">
+            <span class="no" aria-hidden="true">01</span>
+            <div>
+              <h3>第一次以参展商身份回到这里</h3>
+              <p>十年前他是采购商，如今带着自己的品牌回到熟悉的展位号，这篇随笔写下了转变前后的心情。</p>
+            </div>
+          </article>
+          <article class="story-item">
+            <span class="no" aria-hidden="true">02</span>
+            <div>
+              <h3>翻译桌上的三种笔迹</h3>
+              <p>一位随行翻译记录了一整天里被反复修改的报价单，以及语言如何缩短信任的距离。</p>
+            </div>
+          </article>
+          <article class="story-item">
+            <span class="no" aria-hidden="true">03</span>
+            <div>
+              <h3>闭馆后的保洁班组</h3>
+              <p>他们在四小时内让一座展馆重新变得整洁，也在休息间隙讨论明天的路线。</p>
+            </div>
+          </article>
+          <article class="story-item">
+            <span class="no" aria-hidden="true">04</span>
+            <div>
+              <h3>把展位灯光调暗一点的那位设计师</h3>
+              <p>关于展台照明的一点点坚持，背后是对观展体验的长期观察。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 影像墙 -->
+  <section class="wall-band" id="wall">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Gallery</span>
+          <h2>影像墙：来自创作者与用户的现场</h2>
+          <p class="desc">本期精选 9 张现场画面，来自馆方档案库与社区投稿，持续更新。</p>
+        </div>
+        <a class="btn btn-accent" href="#contact">投稿你的影像</a>
+      </div>
+      <div class="wall">
+        <div class="wall-item big">
+          <img alt="展馆中央大厅顶部结构与人群的同框影像" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480'><rect width='480' height='480' fill='%230b2a42'/><g stroke='%23e8a33d' stroke-width='3' fill='none' opacity='.8'><path d='M60 380 L240 90 L420 380'/><path d='M120 380 L240 180 L360 380'/></g><g fill='%23dcecf5' opacity='.75'><circle cx='180' cy='400' r='11'/><circle cx='230' cy='412' r='9'/><circle cx='290' cy='404' r='10'/><circle cx='340' cy='416' r='9'/></g></svg>">
+          <div class="cap">中央大厅：结构与人的比例</div>
+        </div>
+        <div class="wall-item tall">
+          <img alt="展位讲解员向观众展示产品的竖幅影像" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 480'><rect width='300' height='480' fill='%23f2f7fa'/><rect x='60' y='180' width='80' height='200' rx='10' fill='%230b5c8a'/><circle cx='100' cy='140' r='30' fill='%23e8a33d'/><g fill='%23a7c3d6'><rect x='180' y='230' width='70' height='14' rx='7'/><rect x='180' y='262' width='50' height='12' rx='6'/></g></svg>">
+          <div class="cap">讲解时刻：一次耐心说明</div>
+        </div>
+        <div class="wall-item">
+          <img alt="展馆外广场上飘扬的旗帜特写影像" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23137ba8'/><g fill='%23e8a33d' opacity='.9'><path d='M70 50 q40 20 0 40 q40 20 0 40' fill='none' stroke='%23e8a33d' stroke-width='10'/></g><g fill='%23ffffff' opacity='.4'><rect x='170' y='70' width='90' height='8' rx='4'/><rect x='170' y='96' width='60' height='8' rx='4'/></g></svg>">
+          <div class="cap">旗帜与风：广场的清晨</div>
+        </div>
+        <div class="wall-item">
+          <img alt="展台上摆放的样品与图册的静物影像" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23f6ede0'/><g fill='%23c98f34'><rect x='40' y='110' width='70' height='50' rx='6'/><rect x='130' y='90' width='50' height='70' rx='6'/><rect x='200' y='120' width='70' height='40' rx='6'/></g><g fill='%239fb9c9'><rect x='40' y='170' width='230' height='8' rx='4'/></g></svg>">
+          <div class="cap">样品与图册：展位的细节</div>
+        </div>
+        <div class="wall-item big">
+          <img alt="洽谈区不同语言交流场景的群像影像" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480'><rect width='480' height='480' fill='%23e8f2f7'/><g fill='%23137ba8'><circle cx='140' cy='150' r='34'/><circle cx='330' cy='150' r='34'/></g><g fill='%23c98f34'><rect x='90' y='200' width='100' height='120' rx='14'/><rect x='280' y='200' width='100' height='120' rx='14'/></g><g stroke='%239fb9c9' stroke-width='4'><path d='M200 250 H270'/></g><g fill='%23a7c3d6'><rect x='120' y='360' width='240' height='12' rx='6'/></g></svg>">
+          <div class="cap">洽谈区：语言之间的停顿</div>
+        </div>
+        <div class="wall-item">
+          <img alt="展馆外立面几何结构的局部特写影像" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23174968'/><g stroke='%23cfe2ee' stroke-width='3' opacity='.8'><path d='M20 180 L80 40 L160 180 M120 180 L180 40 L240 180 M220 180 L280 40 L300 90'/></g><circle cx='250' cy='150' r='30' fill='%23e8a33d' opacity='.7'/></svg>">
+          <div class="cap">外立面：重复中的秩序</div>
+        </div>
+        <div class="wall-item">
+          <img alt="创作者在展馆通道手持设备拍摄的幕后影像" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%232a3f52'/><circle cx='110' cy='80' r='26' fill='%23e8a33d'/><rect x='80' y='110' width='60' height='70' rx='10' fill='%23e8a33d'/><g fill='%23e9f1f7' opacity='.7'><rect x='180' y='60' width='70' height='50' rx='6'/><rect x='180' y='130' width='50' height='10' rx='5'/></g></svg>">
+          <div class="cap">幕后：一台机器与一个人</div>
+        </div>
+        <div class="wall-item tall">
+          <img alt="晚间展馆外灯光通道的竖幅影像" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 480'><rect width='300' height='480' fill='%23091a2b'/><g fill='%23f0b45e' opacity='.85'><rect x='90' y='160' width='120' height='180' rx='8'/><circle cx='150' cy='110' r='30' opacity='.3'/></g><g fill='%23bfe2f2' opacity='.6'><rect x='110' y='190' width='20' height='90'/><rect x='150' y='190' width='20' height='90'/></g></svg>">
+          <div class="cap">夜行：灯光指引的方向</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户评价 -->
+  <section class="review-band" id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Voices</span>
+          <h2>用户评价：来自参展者与观众的真实反馈</h2>
+          <p class="desc">我们把口碑当成内容的一部分，所有评价来自真实用户，长期可见。</p>
+        </div>
+      </div>
+      <div class="review-grid">
+        <article class="review-card">
+          <div class="stars" aria-label="五星评价">★★★★★</div>
+          <p>第一次来这里参展，提前看了官方的动线攻略，布展当天少走了很多弯路。影像里讲得比纸质手册清楚多了。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#0b5c8a">刘</span><span>刘女士 · 参展商</span></div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="四星半评价">★★★★☆</div>
+          <p>「展馆二十四小时」那集我连着看了两遍。以前只觉得场馆大，现在知道背后有多少部门在同步运转。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#137ba8">赵</span><span>赵先生 · 观众</span></div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="五星评价">★★★★★</div>
+          <p>作为内容创作者，这里的素材库帮了大忙。标签分类清楚，画面质量也稳，基本不用再自己补拍空镜。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#b4622a">陈</span><span>陈同学 · 影像创作者</span></div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="四星评价">★★★★☆</div>
+          <p>希望能多更新一些参展企业自己的故事，尤其是中小企业第一次来参展的经历，那类内容特别有共鸣。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#2f7a5c">王</span><span>王经理 · 外贸企业</span></div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="五星评价">★★★★★</div>
+          <p>带父母来看展，出发前一起看了城市散步那期，他们对老城区的兴趣比展馆还大，行程因此变得很松弛。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#6a4a86">周</span><span>周女士 · 观众</span></div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="五星评价">★★★★★</div>
+          <p>志愿者那集拍得很真诚。我在现场问过一次路，对方讲了足足两分钟，画面里的耐心和那天一样。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#3b5f8a">李</span><span>李先生 · 参观者</span></div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="四星半评价">★★★★☆</div>
+          <p>模块化展台的测评很实用，数据摆得明白。建议后续加上拆装损耗的长期跟踪，会更完整。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#8a5a10">郑</span><span>郑工程师 · 展陈设计</span></div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="五星评价">★★★★★</div>
+          <p>喜欢这里的整体气质，没有夸张标题，信息密度高，看几分钟就能获得实际有用的东西。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#0d5e78">孙</span><span>孙编辑 · 行业媒体</span></div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="五星评价">★★★★★</div>
+          <p>投稿过一次现场影像，审核反馈很细，连取景建议都写了。这种认真让我愿意继续投。</p>
+          <div class="rv-foot"><span class="avatar" style="background:#a2643a">何</span><span>何同学 · 摄影爱好者</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + 联系 -->
+  <section class="faq-band" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Help</span>
+          <h2>帮助与联系：关于这座展馆的常见问题</h2>
+          <p class="desc">参展、参观、投稿与合作的常见疑问，整理如下；如仍未解决，欢迎直接联系。</p>
+        </div>
+      </div>
+      <div class="faq-layout">
+        <div>
+          <details class="faq-item" open>
+            <summary>如何查看展馆的现场纪实影像？</summary>
+            <div class="ans">在「内容精选」区域可以通过主题标签筛选，也可以使用页头搜索框输入关键词，例如“布展夜”“动线攻略”，系统会给出对应内容建议。</div>
+          </details>
+          <details class="faq-item">
+            <summary>参展企业可以申请自己的品牌专题吗？</summary>
+            <div class="ans">可以。我们为长期参展企业提供品牌专题合作，内容包含展台诞生记录、企业访谈与产品影像档案。请通过页面底部的合作邮箱说明企业基本情况与展会届次。</div>
+          </details>
+          <details class="faq-item">
+            <summary>投稿的影像有什么具体要求？</summary>
+            <div class="ans">建议 16:9 横屏素材，分辨率不低于 1080p，画面稳定、无第三方平台水印。纪实类、攻略类、城市类内容优先，投稿后三个工作日内会收到内容团队反馈。</div>
+          </details>
+          <details class="faq-item">
+            <summary>展馆的开放时间与参观方式？</summary>
+            <div class="ans">展馆按展会日程开放，常规参观需提前登记。具体届次的开放日期、入场凭证与安检要求，以每届官方发布的通知为准，请关注企业动态栏目。</div>
+          </details>
+          <details class="faq-item">
+            <summary>可以申请使用馆内场地进行拍摄吗？</summary>
+            <div class="ans">可以。拍摄申请需说明拍摄内容、团队人数与设备清单，并在非高峰时段进行。涉及展位拍摄时，需要同时取得参展企业同意。</div>
+          </details>
+          <details class="faq-item">
+            <summary>创作者社区如何加入？</summary>
+            <div class="ans">点击「申请成为创作者」，填写擅长领域与作品链接。我们更看重持续记录的能力，而非单条爆款。通过后可以获取素材支持与选题共建机会。</div>
+          </details>
+          <details class="faq-item">
+            <summary>影像内容可以转载吗？</summary>
+            <div class="ans">页面内的原创影像均标注来源，转载需保留品牌与作者信息，并注明出处。商业用途请提前联系内容团队获取书面授权。</div>
+          </details>
+        </div>
+        <aside class="contact-card" id="contact">
+          <h3>联系品牌内容团队</h3>
+          <p>无论是参展咨询、内容合作，还是投稿与选题建议，我们都愿意花时间读完你的信息，并在三个工作日内回复。</p>
+          <ul>
+            <li><b>合作邮箱</b><span>brand@cantonfair-hall.example</span></li>
+            <li><b>投稿通道</b><span>creator@cantonfair-hall.example</span></li>
+            <li><b>媒体联络</b><span>press@cantonfair-hall.example</span></li>
+            <li><b>展馆地址</b><span>中国 · 广州 · 琶洲 会展中路展馆区</span></li>
+          </ul>
+          <div class="contact-actions">
+            <button class="btn btn-accent" id="openSubmit">我要投稿</button>
+            <button class="btn btn-ghost" id="copyLink">复制本页链接</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="flogo">
+          <span class="logo-mark" aria-hidden="true">广交</span>
+          <strong>中国进出口商品交易会展馆</strong>
+        </div>
+        <p>中国进出口商品交易会展馆官方网站，以影像记录商贸盛会与城市现场。我们坚持原创与正版，深耕会展垂直领域，持续为参展企业、采购商与创作者提供高品质内容生态，致力于成为值得信赖的行业影像档案平台。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#focus">视频焦点</a></li>
+          <li><a href="#flow">内容精选</a></li>
+          <li><a href="#topics">专题企划</a></li>
+          <li><a href="#creators">创作者矩阵</a></li>
+          <li><a href="#wall">影像墙</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>品牌与参与</h4>
+        <ul>
+          <li><a href="#stories">品牌故事</a></li>
+          <li><a href="#contact">企业合作</a></li>
+          <li><a href="#contact">创作者报名</a></li>
+          <li><a href="#reviews">用户口碑</a></li>
+          <li><a href="#faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>企业动态</h4>
+        <ul>
+          <li><a href="#topics">展馆智慧导览系统完成升级</a></li>
+          <li><a href="#flow">第 139 届影像档案上线</a></li>
+          <li><a href="#stories">创作者驻场计划开放报名</a></li>
+          <li><a href="#contact">年度内容合作通道开启</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 中国进出口商品交易会展馆 官方网站 · 版权所有 · 持续运营中</span>
+      <span>
+        <a href="#top">回到顶部</a> ·
+        <a href="#faq">隐私与条款</a> ·
+        <a href="#contact">联系我们</a> ·
+        备案号占位：粤ICP备00000000号
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- 弹窗 -->
+<div class="modal-mask" id="modalMask" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <h3 id="modalTitle">投稿你的现场影像</h3>
+    <p id="modalDesc">留下联系方式与作品方向，内容团队会尽快与你联系。</p>
+    <div id="modalFields">
+      <input type="text" id="mName" placeholder="你的称呼">
+      <input type="text" id="mContact" placeholder="邮箱或联系方式">
+      <textarea id="mNote" rows="3" placeholder="作品方向 / 投稿说明"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="modalCancel">取消</button>
+      <button class="btn btn-primary" id="modalOk">提交</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 移动端导航 ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var nav = document.getElementById('nav');
+  navToggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && window.innerWidth <= 980){
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ---------- Toast ---------- */
+  var toast = document.getElementById('toast');
+  var toastTimer = null;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchInput = document.getElementById('searchInput');
+  var searchBtn = document.getElementById('searchBtn');
+  var feedback = document.getElementById('searchFeedback');
+  var suggestions = [
+    {k:'布展夜', d:'布展夜：凌晨三点还亮着的最后一盏灯'},
+    {k:'动线攻略', d:'第一次来展馆？这份四小时动线攻略请收好'},
+    {k:'访谈', d:'十二年，他把展位号做成了客户认得的名片'},
+    {k:'测评', d:'模块化展台实测：48 小时搭建到底能多快'},
+    {k:'城市', d:'从展馆走出的三条街：早茶、骑楼与老码头'},
+    {k:'志愿者', d:'志愿者的一天：把第一次来的人送到对的地方'},
+    {k:'导览', d:'智慧导览实测：多语种图层到底好不好用'}
+  ];
+  function renderFeedback(kw){
+    kw = (kw || '').trim();
+    feedback.innerHTML = '';
+    if(!kw){
+      feedback.innerHTML = '<p>热门搜索</p>';
+    } else {
+      feedback.innerHTML = '<p>与「'+ kw +'」相关的建议</p>';
+    }
+    var list = suggestions.filter(function(s){ return !kw || s.d.indexOf(kw) > -1 || s.k.indexOf(kw) > -1; });
+    if(!list.length){
+      feedback.innerHTML = '<p>暂未找到完全匹配的内容，可尝试「测评」「访谈」「城市」等关键词。</p>';
+      feedback.classList.add('show');
+      return;
+    }
+    list.slice(0,5).forEach(function(s){
+      var a = document.createElement('a');
+      a.href = '#flow';
+      a.textContent = s.d;
+      a.addEventListener('click', function(){
+        feedback.classList.remove('show');
+        showToast('已定位到相关内容：' + s.k);
+      });
+      feedback.appendChild(a);
+    });
+    feedback.classList.add('show');
+  }
+  searchBtn.addEventListener('click', function(){
+    renderFeedback(searchInput.value);
+    if(searchInput.value.trim()) showToast('正在为你筛选相关内容');
+  });
+  searchInput.addEventListener('input', function(){ renderFeedback(searchInput.value); });
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      renderFeedback(searchInput.value);
+      showToast(searchInput.value.trim() ? '已提交搜索：' + searchInput.value.trim() : '请输入关键词');
+    }
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search-box')) feedback.classList.remove('show');
+  });
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.querySelectorAll('.likeBtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var cntEl = btn.querySelector('.cnt');
+      var n = parseInt(cntEl.textContent, 10) || 0;
+      var on = btn.classList.toggle('on');
+      cntEl.textContent = on ? (n + 1) : Math.max(0, n - 1);
+      showToast(on ? '已点赞，感谢你的认可' : '已取消点赞');
+    });
+  });
+  document.querySelectorAll('.favBtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var on = btn.classList.toggle('on');
+      btn.textContent = on ? '★' : '☆';
+      btn.setAttribute('aria-label', on ? '取消收藏' : '收藏');
+      showToast(on ? '已收藏，可在个人中心查看' : '已取消收藏');
+    });
+  });
+
+  /* ---------- 标签筛选 ---------- */
+  var filterRow = document.getElementById('filterRow');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#videoGrid .v-card'));
+  filterRow.addEventListener('click', function(e){
+    var btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    filterRow.querySelectorAll('.filter-btn').forEach(function(b){
+      b.classList.remove('on');
+      b.setAttribute('aria-selected','false');
+    });
+    btn.classList.add('on');
+    btn.setAttribute('aria-selected','true');
+    var f = btn.getAttribute('data-filter');
+    var shown = 0;
+    cards.forEach(function(c){
+      var ok = (f === 'all') || (c.getAttribute('data-cat') === f);
+      c.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    showToast('已筛选：' + btn.textContent + '（' + shown + ' 条内容）');
+  });
+
+  /* ---------- 作者弹窗 ---------- */
+  var authorInfo = {
+    '林致远': '驻场摄影师，连续七届记录开幕日动线，作品以固定机位延时与长时段纪实为主。',
+    '陈一禾': '前结构工程师，专注展陈工艺与材料测评，习惯用参数、对比实验与现场数据说话。',
+    '苏南星': '参观动线研究者，连续五年整理展馆攻略，内容覆盖入场、路线、餐饮与休息点规划。',
+    '何小满': '城市探索类创作者，长期拍摄展馆周边街巷与老城生活，主张慢下来观察一座城市。'
+  };
+  var mask = document.getElementById('modalMask');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalDesc = document.getElementById('modalDesc');
+  var modalFields = document.getElementById('modalFields');
+  var modalOk = document.getElementById('modalOk');
+  var modalCancel = document.getElementById('modalCancel');
+  var modalMode = 'author';
+
+  function openModal(mode, payload){
+    modalMode = mode;
+    if(mode === 'author'){
+      modalTitle.textContent = payload + ' · 创作者档案';
+      modalDesc.textContent = authorInfo[payload] || '该创作者持续在展馆与城市之间记录现场。';
+      modalFields.style.display = 'none';
+      modalOk.textContent = '关注该创作者';
+    } else if(mode === 'submit'){
+      modalTitle.textContent = '投稿你的现场影像';
+      modalDesc.textContent = '留下联系方式与作品方向，内容团队会尽快与你联系。';
+      modalFields.style.display = '';
+      modalOk.textContent = '提交';
+    }
+    mask.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    mask.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.creator-card .more').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openModal('author', btn.getAttribute('data-author'));
+    });
+  });
+  document.getElementById('openSubmit').addEventListener('click', function(){ openModal('submit'); });
+  modalCancel.addEventListener('click', closeModal);
+  mask.addEventListener('click', function(e){ if(e.target === mask) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+  modalOk.addEventListener('click', function(){
+    if(modalMode === 'author'){
+      showToast('已关注，后续更新将第一时间通知');
+    } else {
+      var name = document.getElementById('mName').value.trim();
+      if(!name){ showToast('请先填写你的称呼'); return; }
+      showToast('投稿信息已提交，感谢你的参与');
+      document.getElementById('mName').value = '';
+      document.getElementById('mContact').value = '';
+      document.getElementById('mNote').value = '';
+    }
+    closeModal();
+  });
+
+  /* ---------- 复制链接 ---------- */
+  document.getElementById('copyLink').addEventListener('click', function(){
+    var text = '中国进出口商品交易会展馆 · 官方影像门户';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        showToast('链接信息已复制');
+      }).catch(function(){
+        showToast('复制失败，可手动分享本页');
+      });
+    } else {
+      showToast('当前环境不支持自动复制，请手动分享');
+    }
+  });
+
+  /* ---------- 影像墙点击 ---------- */
+  document.querySelectorAll('.wall-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      var cap = item.querySelector('.cap');
+      showToast(cap ? ('正在打开：' + cap.textContent) : '正在打开影像');
+    });
+  });
+
+  /* ---------- 数字滚动 ---------- */
+  var counted = false;
+  function runCount(){
+    if(counted) return;
+    var stats = document.querySelectorAll('[data-count]');
+    if(!stats.length) return;
+    counted = true;
+    stats.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var start = null;
+      var dur = 1200;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased);
+        if(p < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) runCount(); });
+    }, {threshold:.4});
+    var heroStats = document.querySelector('.hero-stats');
+    if(heroStats) io.observe(heroStats);
+  } else {
+    runCount();
+  }
+
+  /* ---------- 播放提示 ---------- */
+  var playBadge = document.querySelector('.play-badge');
+  if(playBadge){
+    playBadge.addEventListener('click', function(){
+      showToast('正在加载展馆开场纪实影像');
+    });
+    playBadge.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        showToast('正在加载展馆开场纪实影像');
+      }
+    });
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520) toTop.classList.add('show');
+    else toTop.classList.remove('show');
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- 导航高亮 ---------- */
+  var sections = ['focus','flow','topics','creators','stories','wall','faq','contact'];
+  var navLinks = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  function syncNav(){
+    var pos = window.scrollY + 160;
+    var current = 'focus';
+    sections.forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && el.offsetTop <= pos) current = id;
+    });
+    navLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', syncNav, {passive:true});
+  syncNav();
+})();
+</script>
+</body>
+  </html>
